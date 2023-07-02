@@ -9,7 +9,7 @@ pacman -S \
     wget curl xclip networkmanager parted dosfstools grub efibootmgr noto-fonts ttf-fira-code \
     xf86-video-amdgpu vulkan-radeon \
     hyprland firefox alacritty \
-    pipewire pipewire-pulse wireplumber firefox alacritty \
+    pipewire pipewire-pulse wireplumber pavucontrol firefox alacritty \
 
 systemctl enable NetworkManager
 

@@ -124,13 +124,13 @@ device:epic-mouse-v1 {
 $mainMod = SUPER
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-bind = $mainMod, Q, exec, kitty
+bind = $mainMod, T, exec, alacritty
 bind = $mainMod, C, killactive,
-bind = $mainMod, M, exit,
+bind = $mainMod, Q, exit,
 bind = $mainMod, E, exec, dolphin
 bind = $mainMod, V, togglefloating,
-bind = $mainMod, R, exec, wofi --show drun
-bind = $mainMod, P, pseudo, # dwindle
+bind = $mainMod, P, exec, wofi --show drun
+bind = $mainMod SHIFT, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 
 # Move focus with mainMod + arrow keys
