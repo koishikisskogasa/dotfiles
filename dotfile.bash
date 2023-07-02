@@ -11,8 +11,7 @@ cp /usr/share/hyprland/hyprland.conf ~/.config/hypr/.
 echo "configuring alacritty..."
 sleep 1
 mkdir ~/.config/alacritty/
-echo
-"
+cat << EOF > ~/.config/alacritty/alacritty.yml
 font:
   normal:
     family: FiraCode
@@ -111,4 +110,4 @@ colors:
     indexed_colors:
         - { index: 16, color: "#EF9F76" }
         - { index: 17, color: "#F2D5CF" }
-" > ~/.config/alacritty/alacritty.yml
+EOF
