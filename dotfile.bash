@@ -386,4 +386,11 @@ EOF
 
 echo "configuring ananicy-cpp..."
 sleep 1
+git clone https://gitlab.com/ananicy-cpp/ananicy-cpp.git ~/
+cd ~/ananicy-cpp
+cmake -B build \
+  -DCMAKE_RELEASE_TYPE=Release \
+  -S .
+cmake --build build --target ananicy-cpp
+sudo cmake --install build --component Runtime
 
