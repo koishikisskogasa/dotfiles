@@ -277,6 +277,8 @@ colors:
         - { index: 17, color: "#F2D5CF" }
 EOF
 
+echo "configuring neovim..."
+sleep 1
 mkdir ~/.config/nvim/
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -381,3 +383,7 @@ require('lualine').setup {
   extensions = {}
 }
 EOF
+
+echo "configuring ananicy-cpp..."
+sleep 1
+
