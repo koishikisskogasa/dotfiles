@@ -276,3 +276,108 @@ colors:
         - { index: 16, color: "#EF9F76" }
         - { index: 17, color: "#F2D5CF" }
 EOF
+
+mkdir ~/.config/nvim/
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+cat << EOF > ~/.config/nvim/init.lua
+require("adji")
+EOF
+mkdir ~/.config/nvim/lua/
+mkdir ~/.config/nvim/lua/adji
+cat << EOF > ~/.config/nvim/lua/adji/init.lua
+require("adji.set")
+require("adji.remap")
+require("adji.packer")
+EOF
+cat << EOF > ~/.config/nvim/lua/adji/packer.lua
+vim.cmd [[packadd packer.nvim]]
+
+return require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
+
+    use { "catppuccin/nvim", as = "catppuccin" }
+
+    use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+end)
+EOF
+cat << EOF > ~/.config/nvim/lua/adji/remap.lua
+vim.g.mapleader = ","
+vim.keymap.set("i", "<leader>.", "<Esc>")
+vim.keymap.set("n", "<leader>t", vim.cmd.terminal)
+vim.keymap.set("n", "<leader>u", vim.cmd.Ex)
+EOF
+cat << EOF > ~/.config/nvim/lua/adji/remap.lua
+vim.opt.guicursor = ""
+
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.cmd.colorscheme "catppuccin-frappe"
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+EOF
