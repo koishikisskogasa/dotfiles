@@ -6,7 +6,7 @@ echo "created by @miomaowastaken on github bla bla yes."
 sleep 1
 
 pacman -S \
-    wget curl xclip networkmanager parted dosfstools grub efibootmgr \
+    wget curl xclip networkmanager parted dosfstools grub efibootmgr noto-fonts ttf-fira-code \
     xf86-video-amdgpu vulkan-radeon \
     hyprland firefox alacritty \
     pipewire pipewire-pulse wireplumber firefox alacritty \
