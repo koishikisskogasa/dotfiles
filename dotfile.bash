@@ -393,4 +393,4 @@ cmake -B build \
   -S .
 cmake --build build --target ananicy-cpp
 sudo cmake --install build --component Runtime
-git clone https://github.com/CachyOS/ananicy-rules /etc/ananicy.d/
+sudo git clone https://github.com/CachyOS/ananicy-rules /etc/ananicy.d/
