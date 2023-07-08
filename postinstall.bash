@@ -32,7 +32,6 @@ pacman -S \
     wget curl networkmanager parted dosfstools grub efibootmgr noto-fonts ttf-fira-code cmake nlohmann-json spdlog clang llvm \
     xf86-video-amdgpu vulkan-radeon \
     firefox \
-    pipewire pipewire-pulse wireplumber pavucontrol firefox alacritty \
 
 echo "enabling NetworkManager"
 sleep 1
