@@ -3,6 +3,6 @@
 echo "configuring alacritty"
 sleep 1
 
-sudo pacman -S alacritty
+sudo pacman -S alacritty ttf-fira-code
 
-cp -r alacritty/ /home/adji/.config/.
+cp -r ./alacritty/ ~/.config/.
